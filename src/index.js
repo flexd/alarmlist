@@ -11,7 +11,7 @@ import App from './containers/App';
 import configureStore from './store/configureStore';
 
 import Posts  from './components/Posts';
-import Post  from './components/Posts';
+import PostView  from './components/Posts';
 
 const store = configureStore();
 
@@ -22,7 +22,7 @@ render(
         <Route path="/" component={App}>
           <IndexRoute component={Posts} />
           <Route path="alarms" component={Posts}>
-            <Route path="alarm/:id" component={Post} />
+            <Route path="alarm/:id" component={PostView} />
           </Route>
         </Route>
       </ReduxRouter>
