@@ -22,7 +22,7 @@ render(
         <Route path="/" component={App}>
           <IndexRoute component={Posts} />
           <Route path="alarms" component={Posts}>
-            <Route path="alarm/:id" component={PostView} />
+            <Route path="details/:id" component={PostView} />
           </Route>
         </Route>
       </ReduxRouter>

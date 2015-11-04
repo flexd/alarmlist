@@ -4,26 +4,14 @@ import { fetchPosts, deletePost } from '../actions';
 import { Post } from '../components/Post'
 
 export class PostView extends Component {
-  componentDidMount() {
-    this.props.initialFetch();
-  }
   render() {
-    var {onPostClick, isFetching} = this.props;
+    var {onPostClick, currentPost} = this.props;
     return (
       <div>
-      <h1>Hello, Are we fetching? { isFetching == true ? "yes" : "no" }</h1>
-      <ul>
-        {this.props.posts.map((post, i) =>
-          <Post onClick={() => this.props.onPostClick(post)} key={i} post={post} />
-        )}
-      </ul>
+        <Post onClick={() => this.props.onPostClick(currentPost)} post={currentPost} />
       </div>
     );
   }
-}
-function mapStateToProps(state) {
-  return {
-  };
 }
 // Map Redux actions to component props
 function mapDispatchToProps (dispatch) {
@@ -32,4 +20,11 @@ function mapDispatchToProps (dispatch) {
   }
 }
 // Wrap the component to inject dispatch and state into it
-export default connect(mapStateToProps, mapDispatchToProps)(PostView);
+function selectPost(state) {
+  const { id } = state.router.params;
+  return {
+    currentPost: state.posts.items[id]
+  }
+}
+
+export default connect(selectPostm, mapDispatchToProps)(PostDetail);

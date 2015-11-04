@@ -1,5 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
+import { pushState } from 'redux-router';
 import { fetchPosts, deletePost } from '../actions';
 import { Post } from '../components/Post'
 
@@ -32,7 +33,7 @@ function mapStateToProps(state) {
 // Map Redux actions to component props
 function mapDispatchToProps (dispatch) {
   return {
-    onPostClick: (post) => dispatch(deletePost(post)),
+    onPostClick: (post) => dispatch(pushState(null, '/#alarms/details/'+post.id)),
     initialFetch: () => dispatch(fetchPosts('someurl'))
   }
 }
