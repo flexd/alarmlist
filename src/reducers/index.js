@@ -19,7 +19,6 @@ function posts(state = {
                 items: action.items
             }
         case 'DELETE_POST':
-            console.log("We want to delete ID: ", action)
             return {
                 ...state,
                 items: state.items.filter(post =>
