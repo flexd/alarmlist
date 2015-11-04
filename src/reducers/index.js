@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
-import { ReduxRouter, routerStateReducer, reduxReactRouter, pushState } from 'redux-router';
+import { ReduxRouter, reduxReactRouter, pushState } from 'redux-router';
+import { routerStateReducer as router} from 'redux-router';
 
 function posts(state = {
     isFetching: false,
@@ -31,7 +32,7 @@ function posts(state = {
 }
 const rootReducer = combineReducers({
   posts,
-  router: routerStateReducer
+  router
 });
 
 export default rootReducer;
