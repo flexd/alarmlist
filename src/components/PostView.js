@@ -27,4 +27,4 @@ function selectPost(state) {
   }
 }
 
-export default connect(selectPostm, mapDispatchToProps)(PostDetail);
+export default connect(selectPost, mapDispatchToProps)(PostDetail);

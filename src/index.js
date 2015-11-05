@@ -6,8 +6,8 @@ import { reduxReactRouter, routerStateReducer, ReduxRouter } from 'redux-router'
 import { IndexRoute, Route, Link } from 'react-router'
 import { createHistory } from 'history';
 // React components for Redux DevTools
-import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
 import App from './containers/App';
+import DevTools from './containers/DevTools';
 import configureStore from './store/configureStore';
 
 import Posts  from './components/Posts';
@@ -16,8 +16,8 @@ import PostView  from './components/Posts';
 const store = configureStore();
 
 render(
-  <div>
   <Provider store={store}>
+    <div>
     <ReduxRouter>
         <Route path="/" component={App}>
           <IndexRoute component={Posts} />
@@ -25,11 +25,9 @@ render(
             <Route path="details/:id" component={PostView} />
           </Route>
         </Route>
-      </ReduxRouter>
-  </Provider>
-  <DebugPanel top right bottom>
-    <DevTools store={store} monitor={LogMonitor} />
- </DebugPanel>
-  </div>,
+    </ReduxRouter>
+    <DevTools />
+    </div>
+    </Provider>,
   document.body
 );

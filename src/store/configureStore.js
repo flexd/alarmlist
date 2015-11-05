@@ -6,6 +6,7 @@ import createLogger from 'redux-logger';
 import { reduxReactRouter} from 'redux-router';
 import { createHistory } from 'history';
 import rootReducer from '../reducers';
+import DevTools from '../containers/DevTools';
 
 const finalCreateStore = compose(
     applyMiddleware(
@@ -13,7 +14,7 @@ const finalCreateStore = compose(
         createLogger()
     ),
     reduxReactRouter({ createHistory }),
-    devTools(),
+    DevTools.instrument(),
     // Lets you write ?debug_session=<name> in address bar to persist debug sessions
     persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/))
 )(createStore);
