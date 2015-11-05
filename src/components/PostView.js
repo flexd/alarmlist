@@ -5,20 +5,20 @@ import { Post } from '../components/Post'
 
 export class PostView extends Component {
   render() {
-    var {onPostClick, currentPost} = this.props;
+    var {currentPost} = this.props;
     return (
       <div>
-        <Post onClick={() => this.props.onPostClick(currentPost)} post={currentPost} />
+        <Post post={currentPost} />
       </div>
     );
   }
 }
 // Map Redux actions to component props
-function mapDispatchToProps (dispatch) {
-  return {
-    onPostClick: (post) => dispatch(deletePost(post)),
-  }
-}
+//function mapDispatchToProps (dispatch) {
+  //return {
+    //onPostClick: (post) => dispatch(deletePost(post)),
+  //}
+//}
 // Wrap the component to inject dispatch and state into it
 function selectPost(state) {
   const { id } = state.router.params;
@@ -27,4 +27,4 @@ function selectPost(state) {
   }
 }
 
-export default connect(selectPost, mapDispatchToProps)(PostDetail);
+export default connect(selectPost)(PostView);
