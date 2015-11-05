@@ -19,11 +19,10 @@ render(
   <Provider store={store}>
     <div>
     <ReduxRouter>
-        <Route path="/" component={App}>
+    <Route path="/" component={App}>
           <IndexRoute component={Posts} />
-          <Route path="alarms" component={Posts}>
-            <Route path="details/:id" component={PostView} />
-          </Route>
+          <Route path="alarms" component={Posts} />
+          <Route path="alarms/details/:id" component={PostView} />
         </Route>
     </ReduxRouter>
     <DevTools />
