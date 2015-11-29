@@ -11,7 +11,7 @@ import DevTools from './containers/DevTools';
 import configureStore from './store/configureStore';
 
 import Posts  from './components/Posts';
-import PostView  from './components/Posts';
+import PostView  from './components/PostView';
 
 const store = configureStore();
 

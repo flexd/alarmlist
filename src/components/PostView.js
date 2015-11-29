@@ -23,7 +23,7 @@ export class PostView extends Component {
 function selectPost(state) {
   const { id } = state.router.params;
   return {
-    currentPost: state.posts.items[id]
+    currentPost: state.posts.items[id-1]
   }
 }
 

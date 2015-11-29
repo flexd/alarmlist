@@ -25,17 +25,9 @@ export class Posts extends Component {
 function mapStateToProps(state) {
   const { posts } = state;
   return {
-    reduxState: state,
     posts: posts.items,
     isFetching: posts.isFetching
   };
-}
-// Map Redux actions to component props
-function mapDispatchToProps (dispatch) {
-  return {
-    onPostClick: (post) => dispatch(pushState(null, '/#alarms/details/'+post.id)),
-    initialFetch: () => dispatch(fetchPosts('someurl'))
-  }
 }
 // Wrap the component to inject dispatch and state into it
 //export default connect(mapStateToProps, mapDispatchToProps)(Posts);

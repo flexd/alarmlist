@@ -9,11 +9,11 @@ import rootReducer from '../reducers';
 import DevTools from '../containers/DevTools';
 
 const finalCreateStore = compose(
+    reduxReactRouter({ createHistory }),
     applyMiddleware(
         thunkMiddleware,
         createLogger()
     ),
-    reduxReactRouter({ createHistory }),
     DevTools.instrument(),
     // Lets you write ?debug_session=<name> in address bar to persist debug sessions
     persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/))
